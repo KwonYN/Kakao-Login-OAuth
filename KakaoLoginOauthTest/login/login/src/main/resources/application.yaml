@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    prefix: classpath:templates/
+    check-template-location: true
+    suffix: .html
+    mode: HTML5
+    cache: false
+    order: 0
+
+kakao:
+  oauth:
+    login.redirectUrl: http://localhost:8080/login
+    appKey: 025d1f265573b2bbd67646c96831e668

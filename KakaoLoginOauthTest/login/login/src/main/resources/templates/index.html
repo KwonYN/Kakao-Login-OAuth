@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: auto;
+            border-top: 1px solid #444444;
+            border-collapse: collapse;
+            text-align: center;
+          }
+          th, td {
+            border-bottom: 1px solid #444444;
+            padding: 10px;
+          }
+    </style>
+</head>
+<body>
+    <h1>Kakao Login Test</h1>
+    <span th:if="${userId==null}">
+        <a href="https://kauth.kakao.com/oauth/authorize?client_id=025d1f265573b2bbd67646c96831e668&redirect_uri=http://localhost:8080/login&response_type=code">
+            <img src="img/kakao_login_medium_narrow.png">
+        </a>
+    </span>
+    <span th:if="${userId!=null}">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Access Code</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${userId}"></td>
+                <td th:text="${accessToken}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <form name="logout" action="http://localhost:8080/logout">
+            <input type="submit" value="로그아웃">
+        </form>
+    </span>
+</body>
+</html>
